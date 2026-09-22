@@ -1,0 +1,146 @@
+/* 1. Color Variables setup for Light & Dark Themes */
+:root {
+    /* Light Mode (Default) */
+    --bg-color: #F4F6F9;          /* 60% Soft Light Gray */
+    --card-bg: #FFFFFF;           /* 30% White Card */
+    --text-color: #1E293B;        /* Dark Slate Text */
+    --header-bg: #0F172A;         /* Dark Slate Header */
+    --header-text: #FFFFFF;
+    --accent-color: #6366F1;      /* 10% Electric Violet Accent */
+    --accent-hover: #4F46E5;
+    --border-color: #CBD5E1;
+}
+
+/* Dark Mode Theme Overrides */
+body.dark-mode {
+    --bg-color: #0F172A;          /* 60% Deep Midnight / Dark Slate */
+    --card-bg: #1E293B;           /* 30% Muted Charcoal Card */
+    --text-color: #E2E8F0;        /* Bright Silver Text */
+    --header-bg: #0B0F19;         /* Midnight Header */
+    --header-text: #E2E8F0;
+    --accent-color: #6366F1;      /* Electric Violet Accent */
+    --accent-hover: #818CF8;
+    --border-color: #334155;
+}
+
+/* 2. Basic Layout & Typography */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+header {
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+/* Buttons inside header */
+nav button, #theme-btn {
+    background-color: var(--accent-color);
+    color: #FFFFFF;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin-left: 0.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+}
+
+nav button:hover, #theme-btn:hover {
+    background-color: var(--accent-hover);
+}
+
+/* Main Container & Cards */
+main {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.card {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    transition: background-color 0.3s ease;
+}
+
+.card h2 {
+    margin-top: 0;
+    color: var(--text-color);
+}
+
+/* Input Fields & Forms */
+#login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#login-form input {
+    padding: 0.75rem;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+#login-form button, #quiz-section button {
+    background-color: var(--accent-color);
+    color: #FFFFFF;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#login-form button:hover, #quiz-section button:hover {
+    background-color: var(--accent-hover);
+}
+
+/* Quiz Option Buttons */
+#quiz-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: 1rem 0;
+}
+
+.option-btn {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    padding: 0.75rem;
+    border-radius: 6px;
+    text-align: left;
+    cursor: pointer;
+}
+
+.option-btn:hover {
+    border-color: var(--accent-color);
+}
+
+/* Chart Canvas Area */
+.chart-container {
+    position: relative;
+    height: 300px;
+    width: 100%;
+}
