@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DaRa AI - Register</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>DaRa AI</h1>
+        <button id="theme-btn" onclick="toggleTheme()">🌙 Dark Mode</button>
+    </header>
+
+    <main>
+        <section id="register-section" class="card">
+            <h2>Create an Account</h2>
+            <form id="register-form">
+                <input type="text" id="reg-name" placeholder="Full Name" required>
+                <input type="email" id="reg-email" placeholder="Enter your email" required>
+                <input type="password" id="reg-password" placeholder="Create password" required>
+                <button type="submit">Register</button>
+            </form>
+            <p style="margin-top: 1rem; font-size: 0.9rem; text-align: center;">
+                Already have an account? <a href="index.html" style="color: var(--primary-color, #6366F1);">Login here</a>
+            </p>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

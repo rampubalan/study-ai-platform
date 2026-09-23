@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DaRa AI - Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>DaRa AI</h1>
+        <nav>
+            <a href="quiz.html"><button>Take Quiz</button></a>
+            <a href="dashboard.html"><button>Dashboard</button></a>
+            <a href="chat.html"><button>AI Chat</button></a>
+            <button onclick="logout()">Logout</button>
+            <button id="theme-btn" onclick="toggleTheme()">🌙 Dark Mode</button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="quiz-section" class="card">
+            <h2>AI Practice Quiz</h2>
+            <div id="quiz-container">
+                <p id="quiz-question">Click "Generate Quiz" to load questions from AI.</p>
+                <div id="quiz-options">
+                    <!-- Options buttons will load dynamically here via JS -->
+                </div>
+                <button id="next-btn" style="display: none;">Next Question</button>
+            </div>
+            <button onclick="startQuiz()">Generate Quiz</button>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

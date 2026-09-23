@@ -1,33 +1,57 @@
-// 1. Function to switch visible sections (Navigation)
-function showSection(sectionId) {
-    // Hide all sections first
-    document.getElementById('login-section').style.display = 'none';
-    document.getElementById('quiz-section').style.display = 'none';
-    document.getElementById('dashboard-section').style.display = 'none';
+// ==========================================
+// 1. Navigation & Authentication
+// ==========================================
 
-    // Display the requested section
-    document.getElementById(sectionId).style.display = 'block';
+// Handle Login Form Submission
+document.addEventListener('DOMContentLoaded', () => {
+    const loginForm = document.getElementById('login-form');
+    
+    // Only run this if we are currently on the login page (index.html)
+    if (loginForm) {
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            alert(`Welcome back to DaRa AI, ${email}!`);
+            
+            // Redirect to the Quiz page after logging in
+            window.location.href = 'quiz.html';
+        });
+    }
 
-    // If switching to dashboard, load the performance chart
-    if (sectionId === 'dashboard-section') {
+    // Register Form Handler (register.html)
+    if (registerForm) {
+        registerForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('reg-name').value;
+            alert(`Account created successfully for ${name}! Please log in.`);
+            
+            // Redirect back to login page
+            window.location.href = 'index.html';
+        });
+    }
+
+    // Auto-load Chart if we are currently on the dashboard page
+    if (document.getElementById('scoreChart')) {
         loadDashboardChart();
     }
-}
-
-// 2. Handle Login Form Submission
-document.getElementById('login-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const email = document.getElementById('email').value;
-    alert(`Welcome back to DaRa AI, ${email}!`);
-    
-    // Automatically switch to the quiz section after logging in
-    showSection('quiz-section');
 });
 
-// 3. Quiz Generation Logic (Daavinesh's Feature)
+// Logout Function (Callable from any page navbar)
+function logout() {
+    // Redirect back to login page
+    window.location.href = 'index.html';
+}
+
+
+// ==========================================
+// 2. Quiz Generation Logic (Davinesh)
+// ==========================================
+
 function startQuiz() {
     const questionText = document.getElementById('quiz-question');
     const optionsContainer = document.getElementById('quiz-options');
+
+    if (!questionText || !optionsContainer) return;
 
     // Sample question from AI
     questionText.innerText = "What does RAG stand for in modern AI architectures?";
@@ -47,11 +71,18 @@ function checkAnswer(isCorrect) {
     }
 }
 
-// 4. Render Chart.js Analytics (Daavinesh's Feature)
+
+// ==========================================
+// 3. Render Chart.js Analytics (Davinesh)
+// ==========================================
+
 let chartInstance = null;
 
 function loadDashboardChart() {
-    const ctx = document.getElementById('scoreChart').getContext('2d');
+    const canvas = document.getElementById('scoreChart');
+    if (!canvas) return; // Exit if chart canvas doesn't exist on current page
+
+    const ctx = canvas.getContext('2d');
 
     // Destroy existing chart to prevent re-render overlap glitches
     if (chartInstance) {
@@ -84,16 +115,22 @@ function loadDashboardChart() {
     });
 }
 
-// 5. Function to toggle between Light Mode and Dark Mode
+
+// ==========================================
+// 4. Theme Switcher (Light / Dark Mode)
+// ==========================================
+
 function toggleTheme() {
     // Toggle the 'dark-mode' class on the <body> tag
     document.body.classList.toggle('dark-mode');
 
     // Update the button text depending on which mode is active
     const themeBtn = document.getElementById('theme-btn');
-    if (document.body.classList.contains('dark-mode')) {
-        themeBtn.innerText = '☀️ Light Mode';
-    } else {
-        themeBtn.innerText = '🌙 Dark Mode';
+    if (themeBtn) {
+        if (document.body.classList.contains('dark-mode')) {
+            themeBtn.innerText = '☀️ Light Mode';
+        } else {
+            themeBtn.innerText = '🌙 Dark Mode';
+        }
     }
 }

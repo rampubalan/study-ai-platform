@@ -3,28 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DaRa AI</title>
+    <title>DaRa AI - Login</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Chart.js CDN for Ram/Daavinesh's Progress Graphs -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
-    <!-- Navigation Header -->
     <header>
         <h1>DaRa AI</h1>
-        <nav>
-            <button onclick="showSection('login-section')">Login</button>
-            <button onclick="showSection('quiz-section')">Take Quiz</button>
-            <button onclick="showSection('dashboard-section')">Dashboard</button>
-            
-        <!-- Theme Toggle Button -->
         <button id="theme-btn" onclick="toggleTheme()">🌙 Dark Mode</button>
-    </nav>
-</header>
+    </header>
 
     <main>
-        <!-- 1. User Authentication Section (Daavinesh) -->
         <section id="login-section" class="card">
             <h2>Student Login</h2>
             <form id="login-form">
@@ -32,27 +21,9 @@
                 <input type="password" id="password" placeholder="Enter password" required>
                 <button type="submit">Login</button>
             </form>
-        </section>
-
-        <!-- 2. Interactive Quiz Player Section (Daavinesh) -->
-        <section id="quiz-section" class="card" style="display: none;">
-            <h2>AI Practice Quiz</h2>
-            <div id="quiz-container">
-                <p id="quiz-question">Click "Generate Quiz" to load questions from AI.</p>
-                <div id="quiz-options">
-                    <!-- Options buttons will load dynamically here via JS -->
-                </div>
-                <button id="next-btn" style="display: none;">Next Question</button>
-            </div>
-            <button onclick="startQuiz()">Generate Quiz</button>
-        </section>
-
-        <!-- 3. Progress Analytics Dashboard Section (Daavinesh) -->
-        <section id="dashboard-section" class="card" style="display: none;">
-            <h2>Your Learning Analytics</h2>
-            <div class="chart-container">
-                <canvas id="scoreChart"></canvas>
-            </div>
+            <p style="margin-top: 1rem; font-size: 0.9rem; text-align: center;">
+                Don't have an account? <a href="register.html" style="color: var(--primary-color, #6366F1);">Register here</a>
+            </p>
         </section>
     </main>
 
